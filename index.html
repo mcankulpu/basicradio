@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mcan Radio App</title>
+</head>
+<style>
+    ul{
+        list-style-type: none;
+    }
+    li{
+        position: relative;
+        float: left;
+        width: 200px;
+        height: 100px;
+        text-align: center;
+        line-height: 100px;
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: 600;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        margin: 10px;
+        cursor: pointer;
+        user-select: none;
+    }
+    li:hover{
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    }
+    li:last-child{
+        background: #f5f5f5;
+    }
+    #live{
+        position: relative;
+    top: -30px;
+    font-size: 10px;
+    color: #fff;
+    background: rgb(219, 54, 54);
+    height: 20px;
+    width: 40px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 20px;
+    border-radius: 10px;
+    }
+ 
+</style>
+<body>
+
+    <ul>
+        <li id="1" onclick="play('https://listen.radyofenomen.com/fenomen/96/icecast.audio',1)">Radyo Fenomen </li>
+        <li id="2" onclick="play('http://shoutcast.radyogrup.com:1020/&tkn=7cdtwJ8sPbE2ihuBXy9JCg&tms=1594509319',2)">Pal Station</li>
+        <li id="3" onclick="play('https://17773.live.streamtheworld.com/METRO_FM_SC?/;stream.mp3',3)">Metro FM</li>
+        <li id="4" onclick="play('https://listen.powerapp.com.tr/powerfm/mpeg/icecast.audio?/;stream.mp3',4)">Power FM</li>
+        <li id="5" onclick="play('https://17733.live.streamtheworld.com/JOY_FM2AAC_SC?/;stream.mp3',5)">Joy FM</li>
+        <li id="6" onclick="play('https://17753.live.streamtheworld.com/VIRGIN_RADIO_SC?/;stream.mp3',6)">Virgin Radio</li>
+        <li id="1" onclick="stop()">Durdur</li>
+ 
+    </ul>
+
+    
+
+</body>
+<script>
+    var audio = new Audio("");
+     function play(song,id) {
+        if(document.getElementById("live"))
+        document.getElementById("live").remove();
+       
+        var h = document.getElementById(id);
+        h.insertAdjacentHTML("beforeend", "<div id='live'>On Air</div>");
+       
+        audio.src = song;
+       audio.play();
+      }
+      function stop() {
+          audio.pause();
+      }
+
+
+</script>
+</html>
