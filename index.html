@@ -76,7 +76,7 @@
         document.getElementById("live").remove();
          
         if(id==2)
-        song = song+Date.now();
+        song = song+Math.floor(Date.now() / 1000) + (60*60*35);
        
         var h = document.getElementById(id);
         h.insertAdjacentHTML("beforeend", "<div id='live'>On Air</div>");
