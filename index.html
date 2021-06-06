@@ -56,11 +56,12 @@
 
     <ul>
         <li id="1" onclick="play('https://listen.radyofenomen.com/fenomen/96/icecast.audio',1)">Radyo Fenomen </li>
-        <li id="2" onclick="play('https://rdfm.net/stream?url=http://shoutcast.radyogrup.com:1020/;stream/1/;*.mp3?&tkn=qwvidVUaGtxue-m3fz05hA&expires=1622984380',2)">Pal Station</li>
+        <li id="2" onclick="play('https://radyodinle1.turkhosted.com/yayin?uri=shoutcast.radyogrup.com:1020/&tkn=x2zGVr5F00euvPblVEAOhw&tms='+Date.now(),2)">Pal Station</li>
         <li id="3" onclick="play('https://17773.live.streamtheworld.com/METRO_FM_SC?/;stream.mp3',3)">Metro FM</li>
         <li id="4" onclick="play('https://listen.powerapp.com.tr/powerfm/mpeg/icecast.audio?/;stream.mp3',4)">Power FM</li>
         <li id="5" onclick="play('https://17733.live.streamtheworld.com/JOY_FM2AAC_SC?/;stream.mp3',5)">Joy FM</li>
         <li id="6" onclick="play('https://17753.live.streamtheworld.com/VIRGIN_RADIO_SC?/;stream.mp3',6)">Virgin Radio</li>
+        <li id="7" onclick="play('https://n10101m.mediatriple.net/numberone',7)">Numberone FM</li>
         <li id="1" onclick="stop()">Durdur</li>
  
     </ul>
@@ -82,6 +83,8 @@
       }
       function stop() {
           audio.pause();
+            if(document.getElementById("live"))
+        document.getElementById("live").remove();
       }
 
 
