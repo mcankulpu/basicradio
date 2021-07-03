@@ -50,6 +50,16 @@
     line-height: 20px;
     border-radius: 10px;
     }
+    input[type=range][orient=vertical]
+{
+    writing-mode: bt-lr; /* IE */
+    -webkit-appearance: slider-vertical; /* WebKit */
+    top: 10px;
+    width: 8px;
+    height: 80px;
+    position: relative;
+    cursor: pointer;
+}
  
 </style>
 <body>
@@ -62,7 +72,12 @@
         <li id="5" onclick="play('https://17733.live.streamtheworld.com/JOY_FM2AAC_SC?/;stream.mp3',5)">Joy FM</li>
         <li id="6" onclick="play('https://17753.live.streamtheworld.com/VIRGIN_RADIO_SC?/;stream.mp3',6)">Virgin Radio</li>
         <li id="7" onclick="play('https://n10101m.mediatriple.net/numberone',7)">Numberone FM</li>
+        <li>
+            <input type="range" orient="vertical" step="10" onchange="vol(this.value)" />
+        </li>
         <li id="1" onclick="stop()">Durdur</li>
+       
+       
  
     </ul>
 
@@ -71,7 +86,9 @@
 </body>
 <script>
     var audio = new Audio("");
+    audio.volume = 0.5;
      function play(song,id) {
+         
         if(document.getElementById("live"))
         document.getElementById("live").remove();
        
@@ -85,6 +102,9 @@
           audio.pause();
             if(document.getElementById("live"))
         document.getElementById("live").remove();
+      }
+      function vol(vol){
+          audio.volume = vol/100;
       }
 
 
