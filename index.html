@@ -76,7 +76,7 @@
         <li id="9" onclick="play(' https://22673.live.streamtheworld.com/SC010_SO1_SC?/;stream.mp3',9)">Radio Mydonose</li>
        
         <li>
-            <input type="range" orient="vertical" step="5" onchange="vol(this.value)" />
+            <input type="range" orient="vertical" step="1" onchange="vol(this.value)" />
         </li>
         <li id="1" onclick="stop()">Durdur</li>
        
@@ -89,7 +89,7 @@
 </body>
 <script>
     var audio = new Audio("");
-    audio.volume = 0.07;
+    audio.volume = 0.05;
      function play(song,id) {
          
         if(document.getElementById("live"))
