@@ -99,10 +99,17 @@
        
         var h = document.getElementById(id);
         h.insertAdjacentHTML("beforeend", "<div id='live'>On Air</div>");
-       var hls = new Hls();
-    hls.loadSource('song');
+       (function () {
+  var audio = document.querySelector('#player');
+
+  if (Hls.isSupported()) {
+    var hls = new Hls();
+    hls.loadSource(song);
     hls.attachMedia(audio);
-         plyr.setup(audio);
+  }
+  
+  plyr.setup(audio);
+})();
        audio.play();
       }
       function stop() {
