@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mcan Radio App</title>
+   
 </head>
 <style>
     ul{
@@ -79,6 +80,7 @@
             <input type="range" orient="vertical" step="1" value="1" onchange="vol(this.value)" />
         </li>
         <li id="1" onclick="stop()">Durdur</li>
+        <audio preload="true" id="player" crossorigin>
        
        
  
@@ -88,7 +90,7 @@
 
 </body>
 <script>
-    var audio = new Audio("");
+     var audio = document.querySelector('#player');
     audio.volume = 0.01;
      function play(song,id) {
          
@@ -97,8 +99,10 @@
        
         var h = document.getElementById(id);
         h.insertAdjacentHTML("beforeend", "<div id='live'>On Air</div>");
-       
-        audio.src = song;
+       var hls = new Hls();
+    hls.loadSource('song');
+    hls.attachMedia(audio);
+         plyr.setup(audio);
        audio.play();
       }
       function stop() {
@@ -109,7 +113,14 @@
       function vol(vol){
           audio.volume = vol/100;
       }
+    
+    
+  }
+  
+  plyr.setup(audio);
 
 
 </script>
+     <script src="https://cdn.plyr.io/1.8.2/plyr.js"></script>
+    <script src="https://cdn.jsdelivr.net/hls.js/latest/hls.js">
 </html>
